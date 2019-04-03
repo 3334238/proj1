@@ -19,6 +19,6 @@ for(i = 0; message[i] !='\0'; ++i){
         }
         
         message [i] = ch;}
-//testiyufguyfghg
+//testiyufguyfghgREGDFGFGH
   return 0;
 }
