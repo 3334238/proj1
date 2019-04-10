@@ -1,24 +1,39 @@
 #include <stdio.h>
-//task 3.2 code
+
 int main() {
-char message[25], ch; //
-int i, key;
-
-printf("enter a message to encrypt");
-
-printf("Enter key:");
-scanf("%d", &key);
-
-for(i = 0; message[i] !='\0'; ++i){
-    ch = message[i];
-    
-    if(ch >='a' &&ch <= 'z'){
-        ch = ch - key;
-        if(ch < 'a'){
-            ch = ch + 'z' - 'a' + 1;
-        }
-        
-        message [i] = ch;}
-//testiyufguyfghgREGDFGFGH
-  return 0;
-}
+char message[100], ch;
+	int i, key;
+	
+	printf("Enter a message to encrypt: ");
+	gets(message);
+	printf("Enter key: ");
+	scanf("%d", &key);
+	
+	for(i = 0; message[i] != '\0'; ++i){
+		ch = message[i];
+		if(ch >= 'A' && ch <= 'Z'){
+			ch = ch + key;
+			
+			if(ch > 'Z'){
+				ch = ch - 'Z' + 'A' - 1;
+			}
+			
+			message[i] = ch;
+		}
+		
+		else if(ch >= 'a' && ch <= 'z'){
+			ch = ch + key;
+			
+			if(ch > 'Z'){
+				ch = ch - 'z' + 'a' - 1 - 32; //still having edge problems
+			}
+			
+			message[i] = ch;
+		}
+		
+	}
+	
+	printf("Encrypted message: %s", message);
+	
+	return 0;
+}         
